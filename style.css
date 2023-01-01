@@ -28,6 +28,17 @@ body {
     font-size: 14px;
     font-family: 'Roboto Mono', monospace;
     line-height: 1.80857;
+
+/*turns to black and white*/
+    filter:grayscale(100%);
+　　-webkit-filter:grayscale(100%);
+　　-moz-filter:grayscale(100%);
+　　-ms-filter:grayscale(100%);
+　　-o-filter:grayscale(100%);
+　　filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+　　-webkit-filter:grayscale(1)
+/*the end*/
+
 }
 
 html, body{
