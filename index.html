@@ -349,8 +349,8 @@
                             <option value="index.html">Auto (Mirror Your Device)</option>
                             <option value="EN.html">English</option>
                             <option value="CN.html">中文</option>
-                            <option value="https://www-haozheli-com.translate.goog/EN.html?_x_tr_sl=auto&_x_tr_tl=ko&_x_tr_hl=ko&_x_tr_pto=wapp">한국인 (Google Translate)</option>
-                            <option value="https://www-haozheli-com.translate.goog/EN.html?_x_tr_sl=auto&_x_tr_tl=ja&_x_tr_hl=ja&_x_tr_pto=wapp">日本 (Google Translate)</option>
+                            <option value="KO.html">한국인</option>
+                            <option value="JA.html">日本</option>
                             <option value="https://www-haozheli-com.translate.goog/EN.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp">Other (Google Translate)</option>
                         </select>
                     </p>
@@ -379,18 +379,17 @@
 
     <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
     <script type="text/javascript">
-        //获取用户语言的顺序是
-        //1.获取本地缓存里的内容
-        //2.用户浏览器的语言设置
-        //如果上面2个都没有获取到，就直接使用'en'作为用户选择的语言
+
         var language = localStorage.getItem('locale') || window.navigator.language.toLowerCase() || 'en'
-        //把用户的语言写入缓存，供下次获取使用
         localStorage.setItem('locale', language)
-        //判断用户的语言，跳转到不同的地方
         if (language.indexOf("zh-") !== -1) {
             window.location = 'CN.html'
         } else if (language.indexOf('en') !== -1) {
             window.location = 'EN.html'
+        } else if (language.indexOf('ja') !== -1) {
+            window.location = 'JA.html'
+        } else if (language.indexOf('ko') !== -1) {
+            window.location = 'KO.html'    
         } else {
             //其它的都使用英文
             window.location = 'EN.html'
