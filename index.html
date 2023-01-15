@@ -383,13 +383,8 @@
         localStorage.setItem('locale', language)
         if (language.indexOf("zh-") !== -1) {
             window.location = 'CN.html'
-        } else if (language.indexOf('en') !== -1) {
-            window.location = 'EN.html'
         } else if (language.indexOf('ja') !== -1) {
             window.location = 'JA.html'   
-        } else {
-            //其它的都使用英文
-            window.location = 'EN.html'
         }
     </script>
 
