@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
     <head>
-<title>デスパシート</title>
+<title>Despacito</title>
 <link rel="shortcut icon" href="favicon.ico">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -457,7 +457,7 @@
         <div class="md:flex min-h-screen">
             <div class="w-full md:w-1/2 bg-white flex items-center justify-center">
                 <div class="max-w-sm m-8">
-                    <div class="text-black text-5xl md:text-15xl font-black">絶望</div>
+                    <div class="text-black text-5xl md:text-15xl font-black">Despacito</div>
 
                     <div class="w-16 h-1 bg-purple-light my-3 md:my-6"></div>
 
@@ -481,6 +481,27 @@
 </div>
             </div>
         </div>
-        <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async=""></script>
+        <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+        <script>
+            function addDarkmodeWidget() {
+              const options = {
+                  bottom: '64px', // default: '32px'
+                  right: 'unset', // default: '32px'
+                  left: '32px', // default: 'unset'
+                  time: '0.5s', // default: '0.3s'
+                  mixColor: '#fff', // default: '#fff'
+                  backgroundColor: '#fff',  // default: '#fff'
+                  buttonColorDark: '#100f2c',  // default: '#100f2c'
+                  buttonColorLight: '#fff', // default: '#fff'
+                  saveInCookies: false, // default: true,
+                  label: '🌓', // default: ''
+                  autoMatchOsTheme: true // default: true
+                }
+              const darkmode = new Darkmode(options);
+              darkmode.showWidget();
+            }
+            window.addEventListener('load', addDarkmodeWidget);
+        </script>
     </body>
 </html>
