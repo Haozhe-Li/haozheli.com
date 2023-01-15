@@ -517,8 +517,9 @@ I built my personal website in my spare time. I am very weak in HTML and CSS pro
                   label: '🌓', // default: ''
                   autoMatchOsTheme: true // default: true
                 }
-              const darkmode = new Darkmode(options);
-              darkmode.showWidget();
+              const darkmode =  new Darkmode();
+darkmode.toggle();
+console.log(darkmode.isActivated()) // will return true
             }
             window.addEventListener('load', addDarkmodeWidget);
         </script>
