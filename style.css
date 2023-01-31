@@ -29,7 +29,7 @@ body {
     font-family: 'Roboto Mono', monospace;
     line-height: 1.80857;
 
-/*turns to black and white
+/*turns to black and white*/
     filter:grayscale(100%);
 　　-webkit-filter:grayscale(100%);
 　　-moz-filter:grayscale(100%);
