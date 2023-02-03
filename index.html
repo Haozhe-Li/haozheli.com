@@ -390,15 +390,16 @@
           document.querySelector('p').innerHTML = "In " + language + ", this means hello!";
         };
     </script>
-    <script type="text/javascript">
-
-        var language = localStorage.getItem('locale') || window.navigator.language.toLowerCase() || 'en'
-        localStorage.setItem('locale', language)
-        if (language.indexOf("zh-") !== -1) {
-            window.location = 'blogs_CN/cuilanliu.html'
-        }  else if (language.indexOf('en') !== -1) {
-            window.location = 'blogs/cuilanliu.html'   
-        }
+    <script>
+        window.onload = function() {
+          var greetings = ['你好', 'Bonjour', 'こんにちは', 'Hello', '안녕하세요', 'Здравствуйте', 'Aloha', 'Hallo', 'chào', 'Ciao', 'Hola'];
+          var languages = ['Chinese', 'French', 'Japanese', 'English', 'Korean', 'Russian', 'Hawaiian', 'German', 'Vietnamese', 'Italian', 'Spanish']
+          var index = Math.floor(Math.random() * greetings.length)
+          var greeting = greetings[index];
+          var language = languages[index];
+          document.querySelector('h1').innerHTML = greeting + ',';
+          document.querySelector('p').innerHTML = "In " + language + ", " + greeting + " means hello!";
+        };
     </script>
 </body>
 </html>
