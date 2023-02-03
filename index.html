@@ -78,8 +78,8 @@
 	
 	<section id="home" class="main-banner parallaxie" style="background: url('uploads/banner.jpg')">
 		<div class="heading">
-			<h1>ALOHA, I'm Haozhe LI</h1>
-            <p>An ordinary person who could not be more ordinary</p>
+			<h1></h1><h1>I am Haozhe Li</h1>
+            <p></p>
 			<h3 class="cd-headline clip is-full-width">
 				<span>I love </span>
 				<span class="cd-words-wrapper">
@@ -379,6 +379,17 @@
     <script src="js/jquery.vide.js"></script>
 
     <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+    <script>
+        window.onload = function() {
+          var greetings = ['你好, ', 'Bonjour, ', 'こんにちは, ', 'Hello, ', '안녕하세요, ', 'Здравствуйте ', 'Aloha, ', 'Hallo, ', 'chào, ', 'Ciao, ', 'Hola, '];
+          var languages = ['Chinese', 'French', 'Japanese', 'English', 'Korean', 'Russian', 'Hawaiian', 'German', 'Vietnamese', 'Italian', 'Spanish']
+          var index = Math.floor(Math.random() * greetings.length)
+          var greeting = greetings[index];
+          var language = languages[index];
+          document.querySelector('h1').innerHTML = greeting + ",";
+          document.querySelector('p').innerHTML = "In " + language + ", this means hello!";
+        };
+    </script>
     <script type="text/javascript">
 
         var language = localStorage.getItem('locale') || window.navigator.language.toLowerCase() || 'en'

@@ -76,8 +76,8 @@
 	
 	<section id="home" class="main-banner parallaxie" style="background: url('uploads/banner.jpg')">
 		<div class="heading">
-			<h1>你好，我是李浩哲</h1>
-            <p>一个普通到再不能普通的普通人</p>
+			<h1></h1><h1>我是李浩哲</h1>
+            <p></p>
 			<h3 class="cd-headline clip is-full-width">
 				<span>我喜欢</span>
 				<span class="cd-words-wrapper">
@@ -373,6 +373,17 @@
     <script src="js/custom.js"></script>
     <script src="js/jquery.vide.js"></script>
     <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+    <script>
+        window.onload = function() {
+          var greetings = ['你好, ', 'Bonjour, ', 'こんにちは, ', 'Hello, ', '안녕하세요, ', 'Здравствуйте ', 'Aloha, ', 'Hallo, ', 'chào, ', 'Ciao, ', 'Hola, '];
+          var languages = ['中文', '法语', '日语', '英语', '韩语', '俄语', '夏威夷语', '德语', '越南语', '意大利语', '西班牙语']
+          var index = Math.floor(Math.random() * greetings.length)
+          var greeting = greetings[index];
+          var language = languages[index];
+          document.querySelector('h1').innerHTML = greeting + ",";
+          document.querySelector('p').innerHTML = "在" + language + "中，这个词的意思是是你好！";
+        };
+    </script>
 
 
 
