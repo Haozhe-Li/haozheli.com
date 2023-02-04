@@ -69,6 +69,9 @@
                 <a class="nav-link js-scroll-trigger" href="#portfolio">PORTFOLIO</a>
               </li>
             <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#blog">BLOG</a>
+              </li>
+            <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#contact">CONTACT</a>
               </li>   
           </ul>
@@ -283,6 +286,62 @@
 		</div>
 	</div>
 
+    <div id="blog" class="section lb">
+		<div class="container">
+			<div class="section-title text-left">
+                <h3>Blog</h3>
+                <p>I will post my daily shares and feelings here</p><a href=""#>查看往期文章</a>
+            </div><!-- end title -->
+			
+			<div class="row">
+
+				<div class="col-md-4 col-sm-6 col-lg-4">
+					<div class="post-box">
+						<div class="post-thumb">
+							<img src="uploads/personalWebsite.png" class="img-fluid" alt="post-img" />
+							<div class="date">
+								<span>03</span>
+								<span>Feb</span>
+							</div>
+						</div>
+						<div class="post-info">
+							<h4>How to make a personal website for just a minute</h4>
+							<ul>
+                                <li>by Haozhe Li</li>
+                                <li>Feb 3, 2023</li>
+                                <li><a href="#"><b> READ HERE </b></a></li>
+                            </ul>
+							<p></p>
+						</div>
+					</div>
+				</div>
+
+                <div class="col-md-4 col-sm-6 col-lg-4">
+					<div class="post-box">
+						<div class="post-thumb">
+							<img src="uploads/davinci.png" class="img-fluid" alt="post-img" />
+							<div class="date">
+								<span>16</span>
+								<span>Oct</span>
+							</div>
+						</div>
+						<div class="post-info">
+							<h4>Experience: when I bought Davinci Resolve Studio</h4>
+							<ul>
+                                <li>by Haozhe Li</li>
+                                <li>Oct 16, 2021</li>
+                                <li><a href="https://www-bilibili-com.translate.goog/read/cv13616406?spm_id_from=333.999.0.0&_x_tr_sl=zh-CN&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp" onclick="myFunction()" value="alert"><b> READ HERE </b></a></li>
+                            </ul>
+							<p></p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			
+		</div>
+	</div>
+
     <div id="contact" class="section db">
         <div class="container">
             <div class="section-title text-left">
@@ -390,6 +449,13 @@
           document.querySelector('h1').innerHTML = greeting + ',';
           document.querySelector('p').innerHTML = "In " + language + ", " + greeting + " means hello!";
         };
+    </script>
+
+    <script>
+        function myFunction()
+        {
+            alert("This article was written in Chinese. To read in other language, Google Translator will be applied.");
+        }
     </script>
 
 

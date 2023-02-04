@@ -35,7 +35,7 @@
 
 </head>
 
-<body id="page-top" class="politics_version">
+<body id="page-top" class="politics_version" onload="document.getElementById('greeting').innerHTML = greetings[Math.floor(Math.random() * greetings.length)];">
 
     <!-- LOADER
     <div id="preloader">
@@ -67,6 +67,9 @@
               </li>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#portfolio">PORTFOLIO</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#blog">BLOG</a>
               </li>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#contact">CONTACT</a>
@@ -283,6 +286,62 @@
 		</div>
 	</div>
 
+    <div id="blog" class="section lb">
+		<div class="container">
+			<div class="section-title text-left">
+                <h3>Blog</h3>
+                <p>I will post my daily shares and feelings here</p><a href=""#>查看往期文章</a>
+            </div><!-- end title -->
+			
+			<div class="row">
+
+				<div class="col-md-4 col-sm-6 col-lg-4">
+					<div class="post-box">
+						<div class="post-thumb">
+							<img src="uploads/personalWebsite.png" class="img-fluid" alt="post-img" />
+							<div class="date">
+								<span>03</span>
+								<span>Feb</span>
+							</div>
+						</div>
+						<div class="post-info">
+							<h4>How to make a personal website for just a minute</h4>
+							<ul>
+                                <li>by Haozhe Li</li>
+                                <li>Feb 3, 2023</li>
+                                <li><a href="#"><b> READ HERE </b></a></li>
+                            </ul>
+							<p></p>
+						</div>
+					</div>
+				</div>
+
+                <div class="col-md-4 col-sm-6 col-lg-4">
+					<div class="post-box">
+						<div class="post-thumb">
+							<img src="uploads/davinci.png" class="img-fluid" alt="post-img" />
+							<div class="date">
+								<span>16</span>
+								<span>Oct</span>
+							</div>
+						</div>
+						<div class="post-info">
+							<h4>Experience: when I bought Davinci Resolve Studio</h4>
+							<ul>
+                                <li>by Haozhe Li</li>
+                                <li>Oct 16, 2021</li>
+                                <li><a href="https://www-bilibili-com.translate.goog/read/cv13616406?spm_id_from=333.999.0.0&_x_tr_sl=zh-CN&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp" onclick="myFunction()" value="alert"><b> READ HERE </b></a></li>
+                            </ul>
+							<p></p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			
+		</div>
+	</div>
+
     <div id="contact" class="section db">
         <div class="container">
             <div class="section-title text-left">
@@ -363,6 +422,7 @@
     </div><!-- end copyrights -->
 
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    
 
     <!-- ALL JS FILES -->
     <script src="js/all.js"></script>
@@ -381,17 +441,6 @@
     <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
     <script>
         window.onload = function() {
-          var greetings = ['你好, ', 'Bonjour, ', 'こんにちは, ', 'Hello, ', '안녕하세요, ', 'Здравствуйте ', 'Aloha, ', 'Hallo, ', 'chào, ', 'Ciao, ', 'Hola, '];
-          var languages = ['Chinese', 'French', 'Japanese', 'English', 'Korean', 'Russian', 'Hawaiian', 'German', 'Vietnamese', 'Italian', 'Spanish']
-          var index = Math.floor(Math.random() * greetings.length)
-          var greeting = greetings[index];
-          var language = languages[index];
-          document.querySelector('h1').innerHTML = greeting;
-          document.querySelector('p').innerHTML = "In " + language + ", this means hello!";
-        };
-    </script>
-    <script>
-        window.onload = function() {
           var greetings = ['你好', 'Bonjour', 'こんにちは', 'Hello', '안녕하세요', 'Здравствуйте', 'Aloha', 'Hallo', 'chào', 'Ciao', 'Hola'];
           var languages = ['Chinese', 'French', 'Japanese', 'English', 'Korean', 'Russian', 'Hawaiian', 'German', 'Vietnamese', 'Italian', 'Spanish']
           var index = Math.floor(Math.random() * greetings.length)
@@ -401,5 +450,24 @@
           document.querySelector('p').innerHTML = "In " + language + ", " + greeting + " means hello!";
         };
     </script>
+
+    <script>
+        function myFunction()
+        {
+            alert("This article was written in Chinese. To read in other language, Google Translator will be applied.");
+        }
+    </script>
+    <script type="text/javascript">
+
+        var language = localStorage.getItem('locale') || window.navigator.language.toLowerCase() || 'en'
+        localStorage.setItem('locale', language)
+        if (language.indexOf("zh-") !== -1) {
+            window.location = 'blogs_CN/cuilanliu.html'
+        }  else if (language.indexOf('en') !== -1) {
+            window.location = 'blogs/cuilanliu.html'   
+        }
+    </script>
+
+
 </body>
 </html>
