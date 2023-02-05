@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Simple HTML File</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <p>This is a simple HTML file with only an h1 and a p tag.</p>
+    <script>
+        window.onload = function() {
+          var greetings = ['你好', 'Bonjour', 'こんにちは', 'Hello', '안녕하세요', 'Здравствуйте', 'Aloha', 'Hallo', 'chào', 'Ciao', 'Hola'];
+          var languages = ['Chinese', 'French', 'Japanese', 'English', 'Korean', 'Russian', 'Hawaiian', 'German', 'Vietnamese', 'Italian', 'Spanish']
+          var index = Math.floor(Math.random() * greetings.length)
+          var greeting = greetings[index];
+          var language = languages[index];
+          document.querySelector('h1').innerHTML = greeting + ',';
+          document.querySelector('p').innerHTML = "In " + language + ", " + greeting + " means hello!";
+        };
+    </script>
+  </body>
+</html>

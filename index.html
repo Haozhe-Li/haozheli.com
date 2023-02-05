@@ -300,16 +300,16 @@
 						<div class="post-thumb">
 							<img src="uploads/personalWebsite.png" class="img-fluid" alt="post-img" />
 							<div class="date">
-								<span>03</span>
+								<span>05</span>
 								<span>Feb</span>
 							</div>
 						</div>
 						<div class="post-info">
-							<h4>How to make a personal website for just a minute</h4>
+							<h4>Using JavaScript to implement greeting effects in different languages in web pages</h4>
 							<ul>
                                 <li>by Haozhe Li</li>
                                 <li>Feb 3, 2023</li>
-                                <li><a href="#"><b> READ HERE </b></a></li>
+                                <li><a href="blogs/greeting-effect.html"><b> READ HERE </b></a></li>
                             </ul>
 							<p></p>
 						</div>
@@ -330,7 +330,7 @@
 							<ul>
                                 <li>by Haozhe Li</li>
                                 <li>Oct 16, 2021</li>
-                                <li><a href="https://www-bilibili-com.translate.goog/read/cv13616406?spm_id_from=333.999.0.0&_x_tr_sl=zh-CN&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp" onclick="myFunction()" value="alert"><b> READ HERE </b></a></li>
+                                <li><a href="blogs/davinci-resolve-experience.html" onclick="myFunction()" value="alert"><b> READ HERE </b></a></li>
                             </ul>
 							<p></p>
 						</div>
@@ -451,19 +451,13 @@
         };
     </script>
 
-    <script>
-        function myFunction()
-        {
-            alert("This article was written in Chinese. To read in other language, Google Translator will be applied.");
-        }
-    </script>
     <script type="text/javascript">
 
         var language = localStorage.getItem('locale') || window.navigator.language.toLowerCase() || 'en'
         localStorage.setItem('locale', language)
         if (language.indexOf("zh-") !== -1) {
             window.location = 'blogs_CN/cuilanliu.html'
-        }  else if (language.indexOf('en') !== -1) {
+        }  else {
             window.location = 'blogs/cuilanliu.html'   
         }
     </script>
