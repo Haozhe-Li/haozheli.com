@@ -1,0 +1,727 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>在网页中使用JavaScript实现不同语言打招呼的效果</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="bf2a95bc-1301-48b9-85db-442da3228860" class="page sans"><header><h1 class="page-title">在网页中使用JavaScript实现不同语言打招呼的效果</h1></header><div class="page-body"><h2 id="9770259d-7fce-475e-8525-54b031c58ae7" class="">声明</h2><p id="b35f673a-e6aa-42e3-b5a9-0cce53643ac1" class="">本人仅仅喜欢编程，在大多数时候水平都不高。该文章建议图一乐，如果有任何建议，请告诉我。</p><h2 id="945ad796-9347-4770-839c-db4d8ca5fd03" class="">介绍</h2><p id="f018c53f-d1d4-4043-8310-e67d73e0d30a" class="">
+</p><p id="75678c5d-9bd5-479b-ab52-60b250fd7073" class="">首先，我的灵感来自于这里：<strong><a href="https://cs128.org">CS128</a></strong> ，这个是我们学校C++介绍课程的网站。在每次进入网站时，网页都会以不同的语言像我打招呼，并注明这个语言的名字。</p><figure id="1ce9b5de-bcc2-42b7-a014-5e88f2d5053c" class="image"><a href="%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8JavaScript%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%89%93%E6%8B%9B%E5%91%BC%E7%9A%84%E6%95%88%E6%9E%9C%20bf2a95bc130148b985db442da3228860/Untitled.png"><img style="width:2488px" src="%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8JavaScript%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%89%93%E6%8B%9B%E5%91%BC%E7%9A%84%E6%95%88%E6%9E%9C%20bf2a95bc130148b985db442da3228860/Untitled.png"/></a></figure><figure id="2155eff1-4840-42fe-a316-0dabdf927009" class="image"><a href="%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8JavaScript%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%89%93%E6%8B%9B%E5%91%BC%E7%9A%84%E6%95%88%E6%9E%9C%20bf2a95bc130148b985db442da3228860/Untitled%201.png"><img style="width:2494px" src="%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8JavaScript%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%89%93%E6%8B%9B%E5%91%BC%E7%9A%84%E6%95%88%E6%9E%9C%20bf2a95bc130148b985db442da3228860/Untitled%201.png"/></a></figure><p id="a2099486-a541-4501-9a8a-672891d535c2" class="">每次刷新的时候打招呼的语言也会改变，看起来非常有意思。所以我也把这个效果引入了我的个人网站中：<strong><a href="https://www.haozheli.com">我的个人网站</a></strong></p><figure id="899533db-4522-4976-a1a0-5ecd7d6db9f7" class="image"><a href="%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8JavaScript%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%89%93%E6%8B%9B%E5%91%BC%E7%9A%84%E6%95%88%E6%9E%9C%20bf2a95bc130148b985db442da3228860/Untitled%202.png"><img style="width:1092px" src="%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8JavaScript%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%89%93%E6%8B%9B%E5%91%BC%E7%9A%84%E6%95%88%E6%9E%9C%20bf2a95bc130148b985db442da3228860/Untitled%202.png"/></a></figure><figure id="7096b05f-3af9-4a1d-9cd7-8b750dee73c5" class="image"><a href="%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8JavaScript%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%89%93%E6%8B%9B%E5%91%BC%E7%9A%84%E6%95%88%E6%9E%9C%20bf2a95bc130148b985db442da3228860/Untitled%203.png"><img style="width:1054px" src="%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8JavaScript%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AF%AD%E8%A8%80%E6%89%93%E6%8B%9B%E5%91%BC%E7%9A%84%E6%95%88%E6%9E%9C%20bf2a95bc130148b985db442da3228860/Untitled%203.png"/></a></figure><p id="35b16441-0545-4ad3-b999-6b6b1f7161c3" class="">
+</p><p id="3920aa0d-9af7-4291-a36c-a1bb0ce54593" class="">今天我将介绍如何使用html以及JavaScript来实现这一功能。</p><p id="64f78796-c75e-4af8-879d-59c2ad11215f" class="">
+</p><h2 id="8f8885d7-6e4f-4edd-a190-7d2b41d0d461" class="">HTML</h2><p id="134917a0-1386-43f9-9ee8-a02d3be5afcc" class="">在HTML中，代码是非常简单的。例如，如果我们想让标题显示问候语，下面的段落解释问候语的语言，我们只需要在html中为标题以及段落插入代码。</p><pre id="1dcf8644-a82e-450a-87d6-fa9f2131ec81" class="code"><code>&lt;h1&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;/p&gt;</code></pre><p id="9fcfee56-d769-49c0-b02d-358ef41129f4" class="">其中&lt;h1&gt;代表标题，&lt;p&gt;代表段落。我们只是插入这两个标签，不需要在其中写任何东西，因为之后的JavaScript代码会覆盖我们现在写的东西。</p><p id="613c312f-a032-46ba-8c94-ee1fbb5f851d" class="">
+</p><h2 id="7157c960-b18a-4498-a169-c8cea0eda109" class="">思路</h2><p id="6a50726f-f98c-4384-bd60-a00f04b82d46" class="">首先，以下是我对实现随机问候的思路。</p><p id="ec5db759-17eb-4e97-b0d3-156ed9a095c1" class="">
+</p><ul id="f1f08df0-f0eb-4a8f-91ae-23e9b6f94aab" class="bulleted-list"><li style="list-style-type:disc">首先创建两个同样长度的数组：其中一个是不同语言的打招呼，另外一个是解释打招呼的是什么语言。注意：这两个数组需要同样的长度</li></ul><pre id="91dd4888-3faa-4c74-808f-13020edf9778" class="code"><code>//这是一段伪代码！！！
+
+打招呼的数组 = [&quot;你好&quot;, &quot;Hello&quot;]
+语言的数组 = [&quot;中文&quot;, &quot;英文&quot;]</code></pre><ul id="689094e5-fc54-4313-9aa5-58e73676e2cd" class="bulleted-list"><li style="list-style-type:disc">然后我们需要创建一个随机数来迭代两个数组从而实现随机的打招呼。然后通过数组的索引访问两个数组内的内容</li></ul><pre id="6536f036-68d5-4d98-902c-250c03526905" class="code"><code>//这个还是一段伪代码！！！
+
+随机数 = 一种神奇的算法得到一个列表长度内的随机数字
+
+打招呼 = 打招呼的数组[随机数]
+语言 = 语言的数组[随机数]</code></pre><ul id="37c5121c-47df-4330-9e45-4ed227e7a921" class="bulleted-list"><li style="list-style-type:disc">最后，我们把问候语和解释语放在前面HTML代码中指定的地方</li></ul><pre id="9470780a-f63b-44ea-a2c4-dd37f9fb2b2c" class="code"><code>//这真的还是伪代码！！！
+
+标题 = 打招呼 + &quot;，很高兴见到你&quot;
+解释 = 打招呼 + &quot;在&quot; + 语言 + &quot;中是你好的意思&quot;</code></pre><h2 id="4e18e7d6-260c-4b8d-a89b-05f26fe3e4c2" class="">JavaScript代码实现</h2><p id="5f91b794-6d3c-42ad-9384-d4b03c769f73" class="">按照前面的思路，我们只需要一步步实现代码就可以了</p><p id="0fc67a7b-1177-4025-a3be-0a68bb121779" class="">
+</p><ul id="344ba3aa-2b1b-47db-8e55-19cc1dc56ab8" class="bulleted-list"><li style="list-style-type:disc">声明两个数组</li></ul><pre id="27637b6a-b6bd-4262-84d0-af3d3912fc5a" class="code"><code>var greetings = [&quot;hello&quot;, &quot;你好&quot;];
+var languages = [&quot;英文&quot;, &quot;中文&quot;];</code></pre><p id="bde53387-76ab-422b-9fe6-f25905f7ce14" class="">
+</p><ul id="3724b09a-7937-4818-a602-8e626feed877" class="bulleted-list"><li style="list-style-type:disc">生成随机数</li></ul><pre id="0587bd5a-6105-4b1a-8a03-4da2a25de5de" class="code"><code>var index = Math.floor(Math.random() * greetings.length)</code></pre><p id="24c4f2db-98f5-427b-a949-7328ea891c40" class="">这行代码的意思是生成一个随机数字，然后将其作为数组的索引，从而从数组中选择一个语言问候。</p><p id="617ba915-7eed-4ef5-bd5d-debb4f8a64cd" class="">首先，<code><strong>Math.random()</strong></code>方法返回一个介于0（包括）和1（不包括）之间的随机数字。</p><p id="b4310208-9921-42e2-8c6a-4a53cda0914f" class="">然后，我们乘上<code><strong>greetings.length</strong></code>，以便生成一个介于0和<code><strong>greetings.length</strong></code>之间的数字。这意味着随机生成的数字可以从0到数组长度（不包括数组长度）-1中选择。</p><p id="e978c5d0-cd77-410e-adcb-c03f30580cf7" class="">最后，我们使用<code><strong>Math.floor</strong></code>方法将生成的数字向下取整，以便生成一个整数，这是因为数组索引只能是整数。</p><p id="87a1022d-ed58-4ae1-b081-763a6f466e0a" class="">所以，<code><strong>var randomIndex = Math.floor(Math.random() * greetings.length);</strong></code>表示生成一个随机整数，作为数组索引，从而从数组<code><strong>greetings</strong></code>中选择一个语言问候。</p><p id="5d90d567-c7c3-4fd7-99df-20a5a54d80aa" class="">
+</p><ul id="992c71af-b893-4425-a0d9-6c5037010f25" class="bulleted-list"><li style="list-style-type:disc">通过索引获得单个元素</li></ul><pre id="44e34ea3-2d9a-4749-85fe-18e952a853d7" class="code"><code>var greeting = greetings[index];
+var language = languages[index];</code></pre><p id="c4007cb7-313a-40db-b320-376176b31571" class="">
+</p><ul id="e2feb123-c2ea-4de9-a305-48df2300bd06" class="bulleted-list"><li style="list-style-type:disc">最后我们在将打招呼和解释的语言放到之前的HTML代码中指定的地方</li></ul><pre id="ad510a72-b120-4605-a263-651667d9a898" class="code"><code>document.querySelector(&#x27;h1&#x27;).innerHTML = greeting + &#x27;,&#x27;;
+document.querySelector(&#x27;p&#x27;).innerHTML = &quot;In &quot; + language + &quot;, &quot; + greeting + &quot; means hello!&quot;;</code></pre><p id="f17f4f41-ee75-4339-a39a-40d47938d420" class="">第一行代码表示选择页面中的第一个<code><strong>&lt;h1&gt;</strong></code>标签，并修改其内部的HTML内容。</p><p id="c61ea215-e2bd-459a-bb28-e2b0788b906d" class="">首先，<code><strong>document.querySelector</strong></code>方法用于选择页面中第一个与给定选择器匹配的元素。在这种情况下，选择器是<code><strong>&quot;h1&quot;</strong></code>，因此这个方法会选择页面中的第一个<code><strong>&lt;h1&gt;</strong></code>标签。</p><p id="8938a14e-9a07-499b-a097-514e7b469e9b" class="">然后，我们使用<code><strong>.innerHTML</strong></code>来修改选定元素的内部HTML。如果将其设置为一个新字符串，则将替换其原始内容。</p><p id="c7449aef-fba8-4ab5-b6ad-40ec6a0bc8c8" class="">所以，<code><strong>document.querySelector(&quot;h1&quot;).innerHTML</strong></code>表示选择页面中的第一个<code><strong>&lt;h1&gt;</strong></code>标签，并将其内部的HTML内容修改为指定的字符串。</p><p id="13a843de-f522-423b-8555-7bdd7b8ec526" class="">
+</p><p id="e6157ca3-46d0-4562-b6b4-d50a29ff0a1e" class="">所以同理，第二行<code><strong>document.querySelector(&quot;p&quot;).innerHTML</strong></code>表示选择页面中的第一个<code><strong>&lt;p&gt;</strong></code>标签，并将其内部的HTML内容修改为指定的字符串。</p><p id="439c2945-5eef-4d1d-99a9-eb3af5f34768" class="">
+</p><p id="bdafebd7-912d-4fe4-b367-cf1c5108f70e" class="">但在之类需要注意，我们必须将自己的标题以及段落放在网页最上面。要在其他地方实现该效果，可以使用id的方法，在这里我就不再赘述。</p><p id="6bc7f7d0-83d2-48d9-b2a2-e9702740f116" class="">
+</p><ul id="0e74e31f-c54c-4238-93eb-22febccb4ece" class="bulleted-list"><li style="list-style-type:disc">最后，我们把JavaScript代码全部放在一个函数下，以实现只有在页面加载完毕后才会加载的效果。完整的JavaScript代码如下。</li></ul><pre id="12f42a04-7d48-4312-8269-9ba412ad84b6" class="code"><code>&lt;script&gt;
+        window.onload = function() {
+          var greetings = [&#x27;你好&#x27;, &#x27;Bonjour&#x27;, &#x27;こんにちは&#x27;, &#x27;Hello&#x27;, &#x27;안녕하세요&#x27;, &#x27;Здравствуйте&#x27;, &#x27;Aloha&#x27;, &#x27;Hallo&#x27;, &#x27;chào&#x27;, &#x27;Ciao&#x27;, &#x27;Hola&#x27;];
+          var languages = [&#x27;Chinese&#x27;, &#x27;French&#x27;, &#x27;Japanese&#x27;, &#x27;English&#x27;, &#x27;Korean&#x27;, &#x27;Russian&#x27;, &#x27;Hawaiian&#x27;, &#x27;German&#x27;, &#x27;Vietnamese&#x27;, &#x27;Italian&#x27;, &#x27;Spanish&#x27;]
+          var index = Math.floor(Math.random() * greetings.length)
+          var greeting = greetings[index];
+          var language = languages[index];
+          document.querySelector(&#x27;h1&#x27;).innerHTML = greeting + &#x27;,&#x27;;
+          document.querySelector(&#x27;p&#x27;).innerHTML = &quot;In &quot; + language + &quot;, &quot; + greeting + &quot; means hello!&quot;;
+        };
+    &lt;/script&gt;</code></pre><p id="e61eb380-f8af-4728-bd90-bd90249eace1" class="">将该代码放在html文件底部就可以了</p><h2 id="abcc2460-0627-49e5-acda-f58671462eb8" class="">Sample</h2><p id="38403772-dfff-4946-80b7-b9f6b947acad" class="">大家可以<strong><a href="https://www.haozheli.com/blogs/greetingsSample.html">访问这里</a></strong>来查看该效果的样例，全部代码如下：</p><pre id="86678c9c-f201-44d5-a333-0da7c8377b6e" class="code"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Simple HTML File&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;This is a simple HTML file with only an h1 and a p tag.&lt;/p&gt;
+    &lt;script&gt;
+        window.onload = function() {
+          var greetings = [&#x27;你好&#x27;, &#x27;Bonjour&#x27;, &#x27;こんにちは&#x27;, &#x27;Hello&#x27;, &#x27;안녕하세요&#x27;, &#x27;Здравствуйте&#x27;, &#x27;Aloha&#x27;, &#x27;Hallo&#x27;, &#x27;chào&#x27;, &#x27;Ciao&#x27;, &#x27;Hola&#x27;];
+          var languages = [&#x27;Chinese&#x27;, &#x27;French&#x27;, &#x27;Japanese&#x27;, &#x27;English&#x27;, &#x27;Korean&#x27;, &#x27;Russian&#x27;, &#x27;Hawaiian&#x27;, &#x27;German&#x27;, &#x27;Vietnamese&#x27;, &#x27;Italian&#x27;, &#x27;Spanish&#x27;]
+          var index = Math.floor(Math.random() * greetings.length)
+          var greeting = greetings[index];
+          var language = languages[index];
+          document.querySelector(&#x27;h1&#x27;).innerHTML = greeting + &#x27;,&#x27;;
+          document.querySelector(&#x27;p&#x27;).innerHTML = &quot;In &quot; + language + &quot;, &quot; + greeting + &quot; means hello!&quot;;
+        };
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre><h2 id="ecb84c5b-2b93-4302-a929-6259957eed9b" class="">结尾</h2><p id="aadae325-6558-498e-9dd2-034059b6cf7d" class="">以上就是本文全部的内容了，很高兴你能看到这里！</p><p id="51b0c600-6274-467a-8287-f748a5f1fe38" class="">
+</p></div></article></body></html>
