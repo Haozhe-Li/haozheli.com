@@ -36,7 +36,19 @@
 <!--Google AdSense-->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6325147925807351"
     crossorigin="anonymous"></script>
-   </head>
+
+    <!--darkmode icon-->
+    <script src="https://cdn.jsdelivr.net/npm/darkmodejs/dist/darkmode.min.js"></script>
+    <style>
+        .darkmode-layer{
+            z-index: 2;
+        }
+    </style>
+    <style>
+        .darkmode-toggle {
+            z-index: 999;
+        }
+    </style>
 </head>
 
 <body id="page-top" class="politics_version" onload="document.getElementById('greeting').innerHTML = greetings[Math.floor(Math.random() * greetings.length)];">
@@ -83,7 +95,7 @@
       </div>
     </nav>
 	
-	<section id="home" class="main-banner" style="position:relative; overflow:hidden;">
+	<section id="home" class="main-banner" style="position:relative; overflow:hidden; z-index: 2">
         <video autoplay muted loop poster="uploads/banner.jpg" class="fullscreen-video">
             <source src="uploads/banner.webm" type="video/webm">
         </video>
@@ -128,7 +140,7 @@
                     </div><!-- end messagebox -->
                 </div><!-- end col -->
 
-                <div class="col-md-6">
+                <div class="col-md-6" style="z-index: 2">
                     <div class="right-box-pro wow fadeIn">
                         <img src="uploads/aboutme.jpg" alt="pic of aboutme" class="img-fluid img-rounded">
                     </div><!-- end media -->
@@ -153,7 +165,7 @@
                                 <h3><i class="fa fa-quote-left"></i> Education (1/4)</h3>
                                 <p class="lead">University of Illinois Urbana-Champaign
                                 <br>BS in Computer Science + Music 2022 - 2026
-                                <br>Current GPA: 4.0<br></p>
+                                <br>Current GPA: 4.0<br><br></p>
                             </div>
                             <div class="testi-meta">
                                 <a href="blogs/education.html"><b>VIEW MORE</b></a>
@@ -291,8 +303,8 @@
 			<div class="row">
 
 				<div class="col-md-4 col-sm-6 col-lg-4">
-					<div class="post-box">
-						<div class="post-thumb">
+					<div class="post-box" style="z-index: 2">
+						<div class="post-thumb" style="z-index: 2">
 							<img src="uploads/personalWebsite.png" class="img-fluid" alt="post-img" />
 							<div class="date">
 								<span>05</span>
@@ -312,8 +324,8 @@
 				</div>
 
                 <div class="col-md-4 col-sm-6 col-lg-4">
-					<div class="post-box">
-						<div class="post-thumb">
+					<div class="post-box" style="z-index: 2">
+						<div class="post-thumb" style="z-index: 2">
 							<img src="uploads/davinci.png" class="img-fluid" alt="post-img" />
 							<div class="date">
 								<span>16</span>
@@ -337,7 +349,7 @@
 		</div>
 	</div>
 
-    <div id="contact" class="section db">
+    <div id="contact" class="section db" style="z-index: 2">
         <div class="container">
             <div class="section-title text-left">
                 <h3>Contact</h3>
@@ -416,7 +428,7 @@
         </div><!-- end container -->
     </div><!-- end copyrights -->
 
-    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    
     
 
     <!-- ALL JS FILES -->
@@ -444,6 +456,27 @@
           document.querySelector('h1').innerHTML = greeting + ',';
           document.querySelector('p').innerHTML = "In " + language + ", " + greeting + " means hello!";
         };
+    </script>
+
+    <!--darkmode-->
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '64px', // default: '32px'
+            right: '32px', // default: '32px'
+            left: 'unset', // default: 'unset'
+            time: '0.5s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: '#fff',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: false, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+          }
+          
+          const darkmode = new Darkmode(options);
+          darkmode.showWidget();
     </script>
 
 
