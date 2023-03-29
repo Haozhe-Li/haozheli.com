@@ -409,6 +409,7 @@
                             <option value="" style="color: #b6b6b6" disabled selected>请选择您的语言</option>
                             <option value="en-us.html">English🇺🇸</option>
                             <option value="zh-cn.html">中文🇨🇳</option>
+                            <option value="https://www-haozheli-com.translate.goog/zh-cn.html?_x_tr_sl=zh-CN&_x_tr_tl=zh-TW&_x_tr_hl=zh-TW&_x_tr_pto=wapp">繁體中文🇨🇳 (Google Translate)</option>
                             <option value="https://www-haozheli-com.translate.goog/en-us.html?_x_tr_sl=zh-CN&_x_tr_tl=ja&_x_tr_hl=ja&_x_tr_pto=wapp">日本 🇯🇵 (Google Translate)</option>
                             <option value="https://www-haozheli-com.translate.goog/en-us.html?_x_tr_sl=en&_x_tr_tl=ko&_x_tr_hl=ko&_x_tr_pto=wapp">한국인🇰🇷 (Google Translate)</option>
                             <option value="https://www-haozheli-com.translate.goog/en-us.html?_x_tr_sl=en&_x_tr_tl=fr&_x_tr_hl=fr&_x_tr_pto=wapp">Français🇫🇷 (Google Translate)</option>
@@ -469,6 +470,16 @@
           
           const darkmode = new Darkmode(options);
           darkmode.showWidget();
+    </script>
+
+    <!--delete the html part-->
+    <script>
+        var currentUrl = window.location.href;
+        if (currentUrl.indexOf('.html') !== -1) {
+            currentUrl = currentUrl.slice(0, -5);
+        }
+        history.replaceState(null, null, currentUrl);
+
     </script>
 
 

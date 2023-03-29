@@ -501,6 +501,16 @@
               const darkmode = new Darkmode(options);
             }
             window.addEventListener('load', addDarkmodeWidget);
-        </script> 
+        </script>
+
+        <!--delete the html part-->
+        <script>
+            var currentUrl = window.location.href;
+            if (currentUrl.indexOf('.html') !== -1) {
+                currentUrl = currentUrl.slice(0, -5);
+            }
+            history.replaceState(null, null, currentUrl);
+
+        </script>
     </body>
 </html>
