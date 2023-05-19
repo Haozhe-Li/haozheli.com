@@ -352,13 +352,14 @@
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
 
-    <script type="text/javascript">
-
-      var language = localStorage.getItem('locale') || window.navigator.language.toLowerCase() || 'en'
-      localStorage.setItem('locale', language)
-      if (language.indexOf("zh-") !== -1) {
-        window.location = 'https://www.haozheli.com/zh/'
-      }
+    <!--choose language-->
+    <script>
+      (function() {
+        var language = navigator.language || navigator.userLanguage; // 获取访问者的语言
+        if (language.toLowerCase().startsWith('zh')) {
+          window.location.href = 'https://haozhelihoward.gitee.io'; // 英文跳转的网页链接
+        }
+      })();
     </script>
   </body>
 </html>
