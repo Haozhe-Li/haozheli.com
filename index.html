@@ -352,13 +352,15 @@
     <script src="js/main.js"></script>
 
     <!--choose language-->
-    <script>
-      (function() {
-        var language = navigator.language || navigator.userLanguage; // 获取访问者的语言
-        if (language.toLowerCase().startsWith('zh')) {
-          window.location.href = 'https://'; // 英文跳转的网页链接
-        }
-      })();
-    </script>
+    <script type="text/javascript">
+				var language = localStorage.getItem('locale') || window.navigator.language.toLowerCase() || 'en'
+				localStorage.setItem('locale', language)
+				if (language.indexOf("zh-") !== -1) {
+					window.location = 'http://haozheli.com'
+          alert('监测到您正在使用中文，正在跳转至haozheli.cn')
+				}  else {
+					window.location = 'index.html'
+				}
+			</script>
   </body>
 </html>
