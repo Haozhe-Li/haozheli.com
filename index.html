@@ -640,7 +640,7 @@
     <!-- You can delete the links only if you purchased the pro version. -->
     <!-- Licensing information: https://bootstrapmade.com/license/ -->
     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
-    <a id="SwitchLanguage" href="#">中文 <i class="fa-solid fa-language"></i></a><br>
+    <a id="SwitchLanguage"></a><br>
     Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> and deployed on <a href="https://vercel.com/">Vercel</a>
   </div>
 
@@ -652,13 +652,16 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script>
-    var link = document.getElementById('SwitchLanguage');
-    link.addEventListener('click', function(event) {
-      event.preventDefault();
-      window.open('https://haozheli.cn')
-    });
-  </script>
+  <!-- ConveyThis code -->
+  <script src="//cdn.conveythis.com/javascript/conveythis-initializer.js"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(e) {
+      ConveyThis_Initializer.init({
+        api_key: "pub_107bb77d7d60f53f57d577ece1096ad3"
+      });
+    });
+  </script>
+  <!-- End ConveyThis code -->
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
