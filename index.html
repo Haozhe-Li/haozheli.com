@@ -642,7 +642,7 @@
           <div class="loading">Loading</div>
           <div class="error-message"></div>
         </div>
-        <div id="hicaptcha-container"></div>
+        <div class="h-captcha" id="h-captcha"></div>
         <div class="text-center"><button type="submit" onclick="submitForm()">Send Message</button></div>
       </form>
 
@@ -680,11 +680,11 @@
   <!--hCaptcha code-->
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <script>
-    // 在这里初始化 hicaptcha，注意替换 YOUR_HICAPTCHA_SITE_KEY 为你的 hicaptcha 网站密钥
-    hicaptcha("hicaptcha-container", {
+    // 在这里初始化 hcaptcha，注意替换 YOUR_HICAPTCHA_SITE_KEY 为你的 hicaptcha 网站密钥
+    hcaptcha("h-captcha", {
         sitekey: "9e460eb7-9e03-4976-8d0e-39c05fc5feca",
         callback: function(response) {
-            // 在这里获取 hicaptcha 验证的结果，并将结果记录在隐藏输入中
+            // 在这里获取 hcaptcha 验证的结果，并将结果记录在隐藏输入中
             if (response) {
                 document.getElementById("captchaResult").value = "true";
             } else {
