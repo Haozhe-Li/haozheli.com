@@ -622,7 +622,7 @@
         </div>
       </div>
 
-      <form action="https://formspree.io/f/mzbqbwod" method="post" role="form" class="php-email-form mt-4">
+      <form id="contact-form" action="https://formspree.io/f/mzbqbwod" method="post" role="form" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -638,16 +638,14 @@
           <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
         </div>
         <div class="my-3">
+          <div class="g-recaptcha" data-sitekey="6LezOOomAAAAAOnw066QBbxmzLyMrfLiXknyjJGd"></div>
           <div class="loading">Loading</div>
           <div class="error-message"></div>
           <div class="sent-message">Your message has been sent. Thank you!</div>
         </div>
         <div class="text-center"><button 
           type="submit"
-          class="g-recaptcha" 
-          data-sitekey="6LezOOomAAAAAOnw066QBbxmzLyMrfLiXknyjJGd" 
-          data-callback='onSubmit' 
-          data-action='submit'
+          onclick="event.preventDefault(); grecaptcha.execute();"
           >Send Message</button></div>
       </form>
 
@@ -683,10 +681,10 @@
   <!-- End ConveyThis code -->
 
   <!--reCaptcha-->
-  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script>
     function onSubmit(token) {
-      document.getElementById("demo-form").submit();
+      document.getElementById("contact-form").submit();
     }
   </script>
 
