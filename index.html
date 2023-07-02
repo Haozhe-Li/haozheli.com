@@ -637,13 +637,13 @@
         <div class="form-group mt-3">
           <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
         </div>
-        <input type="hidden" id="captchaResult" name="captchaResult" value="">
+        <input type="hidden" name="hcaptcha_result" id="hcaptchaResult" value="">
         <div class="my-3">
           <div class="loading">Loading</div>
           <div class="error-message"></div>
         </div>
-        <div class="h-captcha" id="h-captcha"></div>
-        <div class="text-center"><button type="submit" onclick="submitForm()">Send Message</button></div>
+        <div class="h-captcha" data-sitekey="9e460eb7-9e03-4976-8d0e-39c05fc5feca"></div>
+        <div class="text-center"><button type="submit" onclick="validateForm(event)">Send Message</button></div>
       </form>
 
     </div>
@@ -680,32 +680,24 @@
   <!--hCaptcha code-->
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <script>
-    // 在这里初始化 hcaptcha，注意替换 YOUR_HICAPTCHA_SITE_KEY 为你的 hicaptcha 网站密钥
-    hcaptcha("h-captcha", {
-        sitekey: "9e460eb7-9e03-4976-8d0e-39c05fc5feca",
-        callback: function(response) {
-            // 在这里获取 hcaptcha 验证的结果，并将结果记录在隐藏输入中
-            if (response) {
-                document.getElementById("captchaResult").value = "true";
-            } else {
-                document.getElementById("captchaResult").value = "";
-            }
-        }
-    });
-
-    // 提交表单前的逻辑
-    function submitForm() {
-        // 检查是否已通过 hicaptcha 验证
-        var captchaResult = document.getElementById("captchaResult").value;
-        if (captchaResult === "true") {
-            // 通过验证，可以继续提交表单
-            document.getElementById("myForm").submit();
-        } else {
-            // 未通过验证，给出提示或其他处理
-            alert("请先完成hicaptcha验证！");
-        }
+    function validateForm(event) {
+      event.preventDefault(); // 阻止默认的表单提交行为
+      
+      var hcaptchaResult = document.getElementById("hcaptchaResult");
+      
+      // 使用 hcaptcha.getResponse() 方法获取验证结果
+      var response = hcaptcha.getResponse();
+      
+      if (response) {
+        hcaptchaResult.value = "true"; // 将 "true" 记录到隐藏输入中
+        // 提交表单
+        event.target.form.submit();
+      } else {
+        // 如果未通过验证，则什么都不记录，也不提交表单
+        alert("请完成验证后再提交表单。");
+      }
     }
-</script>
+  </script>
   <!--End hCaptcha code-->
 
   <!-- Template Main JS File -->
