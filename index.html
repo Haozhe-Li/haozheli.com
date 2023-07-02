@@ -626,6 +626,7 @@
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+            <input type="hidden" id="hcaptcha-response" name="hcaptcha-response">
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
             <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
@@ -681,6 +682,23 @@
 
   <!--hCaptcha code-->
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // 阻止表单的默认提交行为
+
+    var hcaptchaResponse = document.getElementById('hcaptcha-response').value;
+
+    // 发起 hcaptcha 验证请求
+    hcaptcha.verify(hcaptchaResponse).then(function(response) {
+      // 验证成功，继续提交表单
+      document.getElementById('your-form-id').submit();
+    }).catch(function(error) {
+      // 验证失败，执行相应的操作（例如显示错误消息）
+      console.error('hcaptcha verification failed:', error);
+      // 可以在此处显示错误消息给用户
+    });
+  });
+  </script>
   <!--End hCaptcha code-->
 
   <!-- Template Main JS File -->
