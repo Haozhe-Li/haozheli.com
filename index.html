@@ -637,13 +637,13 @@
         <div class="form-group mt-3">
           <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
         </div>
-        <input type="hidden" id="hcaptcha-response" name="hcaptcha-response">
+        <input type="hidden" id="captchaResult" name="captchaResult" value="">
         <div class="my-3">
           <div class="loading">Loading</div>
           <div class="error-message"></div>
           <div class="sent-message">Your message has been sent. Thank you!</div>
         </div>
-        <div class="h-captcha" data-sitekey="9e460eb7-9e03-4976-8d0e-39c05fc5feca"></div>
+        <div id="hicaptcha-container"></div>
         <div class="text-center"><button 
           type="submit"
           >Send Message</button></div>
@@ -683,22 +683,32 @@
   <!--hCaptcha code-->
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // 阻止表单的默认提交行为
-
-    var hcaptchaResponse = document.getElementById('hcaptcha-response').value;
-
-    // 发起 hcaptcha 验证请求
-    hcaptcha.verify(hcaptchaResponse).then(function(response) {
-      // 验证成功，继续提交表单
-      document.getElementById('your-form-id').submit();
-    }).catch(function(error) {
-      // 验证失败，执行相应的操作（例如显示错误消息）
-      console.error('hcaptcha verification failed:', error);
-      // 可以在此处显示错误消息给用户
+    // 在这里初始化 hicaptcha，注意替换 YOUR_HICAPTCHA_SITE_KEY 为你的 hicaptcha 网站密钥
+    hicaptcha("hicaptcha-container", {
+        sitekey: "9e460eb7-9e03-4976-8d0e-39c05fc5feca",
+        callback: function(response) {
+            // 在这里获取 hicaptcha 验证的结果，并将结果记录在隐藏输入中
+            if (response) {
+                document.getElementById("captchaResult").value = "true";
+            } else {
+                document.getElementById("captchaResult").value = "";
+            }
+        }
     });
-  });
-  </script>
+
+    // 提交表单前的逻辑
+    function submitForm() {
+        // 检查是否已通过 hicaptcha 验证
+        var captchaResult = document.getElementById("captchaResult").value;
+        if (captchaResult === "true") {
+            // 通过验证，可以继续提交表单
+            document.getElementById("myForm").submit();
+        } else {
+            // 未通过验证，给出提示或其他处理
+            alert("请先完成hicaptcha验证！");
+        }
+    }
+</script>
   <!--End hCaptcha code-->
 
   <!-- Template Main JS File -->
