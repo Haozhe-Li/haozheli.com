@@ -16,6 +16,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6db6799e59.js" crossorigin="anonymous"></script>
+
+  <!--Install hCaptcha-->
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
   <!-- Vendor CSS Files -->
@@ -636,7 +638,7 @@
           <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
         </div>
         <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          <textarea id="message class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
         </div>
         <input type="hidden" name="hcaptcha_result" id="hcaptchaResult" value="">
         <div class="my-3">
@@ -684,17 +686,19 @@
       event.preventDefault(); // 阻止默认的表单提交行为
       
       var hcaptchaResult = document.getElementById("hcaptchaResult");
+      var email = document.getElementById("email");
+      var message = document.getElementById("message");
       
       // 使用 hcaptcha.getResponse() 方法获取验证结果
       var response = hcaptcha.getResponse();
       
       if (response) {
-        hcaptchaResult.value = "true"; // 将 "true" 记录到隐藏输入中
+        hcaptchaResult.value = "true" && email !== "" && message !== "";// 将 "true" 记录到隐藏输入中
         // 提交表单
         event.target.form.submit();
       } else {
         // 如果未通过验证，则什么都不记录，也不提交表单
-        alert("Please complete hCaptcha first.\n请先完成hCaptcha验证。");
+        alert("Email, message and hCaptcha are required.\n邮箱、信息以及hCaptcha为必填项目。");
       }
     }
   </script>
