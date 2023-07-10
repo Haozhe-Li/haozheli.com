@@ -31,6 +31,38 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- Weixin Popup style -->
+  <style>
+    /* 弹窗样式 */
+    #popup {
+      display: none; /* 默认隐藏 */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8); /* 半透明黑色背景 */
+      z-index: 9999;
+    }
+
+    #popup img {
+      display: block;
+      max-width: 60%;
+      max-height: 60%;
+      margin: 10% auto; /* 图片居中 */
+    }
+
+    #closeBtn {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      color: #fff;
+      font-size: 70px;
+      cursor: pointer;
+    }
+  </style>
+  <!-- End of Weixin Popup style -->
+
   <!-- =======================================================
   * Template Name: Personal
   * Updated: May 30 2023 with Bootstrap v5.3.0
@@ -67,9 +99,16 @@
         <a href="https://www.instagram.com/haozheli04/" class="instagram"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://www.linkedin.com/in/haozhe-li-306742252/" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
         <a href="https://www.youtube.com/channel/UCBI1IZM1HK6PP9COneQXpog" class="youtube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="#" class="weixin"><i class="fa-brands fa-weixin"></i></a>
+        <a href="#" class="weixin" onclick="showPopup('assets/img/weixin-qr.webp'); return false;"><i class="fa-brands fa-weixin"></i></a>
         <a href="https://space.bilibili.com/421778349?spm_id_from=333.1007.0.0" class="bilibili"><i class="fa-brands fa-bilibili"></i></a>
+        <a href="https://v.douyin.com/iDQXrmM/" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
+
+      <!-- Pop Up element -->
+      <div id="popup">
+        <span id="closeBtn" onclick="closePopup()">&times;</span>
+        <img src="" alt="Pop up QR code">
+      </div>    
 
     </div>
   </header><!-- End Header -->
@@ -559,7 +598,7 @@
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-filmming">
           <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/vlog-preview1.webp" class="img-fluid" alt="poster">
+            <img src="assets/img/portfolio/vlog-preview2.webp" class="img-fluid" alt="poster">
             <div class="portfolio-info">
               <h4>Cinematic Traveling Videos</h4>
               <p>Filmming</p>
@@ -680,7 +719,7 @@
   </script>
   <!-- End ConveyThis code -->
 
-  <!--hCaptcha code-->
+  <!-- hCaptcha code -->
   <script>
     function validateForm(event) {
       event.preventDefault(); // 阻止默认的表单提交行为
@@ -702,7 +741,30 @@
       }
     }
   </script>
-  <!--End hCaptcha code-->
+  <!-- End hCaptcha code -->
+
+  <!-- Pop up weixin QR code section-->
+  <script>
+    function showPopup(imagePath) {
+      var popup = document.getElementById("popup");
+      var img = popup.getElementsByTagName("img")[0];
+      img.src = imagePath;
+      popup.style.display = "block";
+    }
+
+    function closePopup() {
+      var popup = document.getElementById("popup");
+      popup.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      var popup = document.getElementById("popup");
+      if (event.target == popup) {
+        popup.style.display = "none";
+      }
+    }
+  </script>
+  <!-- End of Pop up weixin QR code section-->
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
