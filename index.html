@@ -645,7 +645,7 @@
           <div class="info-box">
             <i class="bx bx-map"></i>
             <h3>My Address</h3>
-            <p>904W Green St, 61801 IL, Urbana, Illinois</p>
+            <p>210S 4th St, Bldg-2-307, Champaignm, Illinois</p>
           </div>
         </div>
 
@@ -697,12 +697,10 @@
         <div class="form-group mt-3">
           <textarea id="message" class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
         </div>
-        <input type="hidden" name="hcaptcha_result" id="hcaptchaResult" value="">
         <div class="my-3">
           <div class="loading">Loading</div>
           <div class="error-message"></div>
         </div>
-        <div class="h-captcha text-center" data-sitekey="9e460eb7-9e03-4976-8d0e-39c05fc5feca" data-theme="dark"></div>
         <div class="text-center"><button type="submit" onclick="validateForm(event)">Send Message</button></div>
       </form>
 
@@ -736,30 +734,6 @@
     });
   </script>
   <!-- End ConveyThis code -->
-
-  <!-- hCaptcha code -->
-  <script>
-    function validateForm(event) {
-      event.preventDefault(); // 阻止默认的表单提交行为
-      
-      var hcaptchaResult = document.getElementById("hcaptchaResult");
-      var email = document.getElementById("email");
-      var message = document.getElementById("message");
-      
-      // 使用 hcaptcha.getResponse() 方法获取验证结果
-      var response = hcaptcha.getResponse();
-      
-      if (response) {
-        hcaptchaResult.value = "true" && email !== "" && message !== "";// 将 "true" 记录到隐藏输入中
-        // 提交表单
-        event.target.form.submit();
-      } else {
-        // 如果未通过验证，则什么都不记录，也不提交表单
-        alert("Email, message and hCaptcha are required.\n邮箱、信息以及hCaptcha为必填项目。");
-      }
-    }
-  </script>
-  <!-- End hCaptcha code -->
 
   <!-- Pop up weixin QR code section-->
   <script>
