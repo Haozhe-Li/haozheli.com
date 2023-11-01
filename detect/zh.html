@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Similarity Detector</title>
+  <title>相似性检测器</title>
   <link rel="stylesheet" href="css/style.css">
 
   <script>
@@ -138,14 +138,14 @@ return false;
         <div class="d-grid cont-main-top">
           <!-- contact form -->
           <div class="contacts12-main">
-            <h3 class="title-main-cont">Similarity Detector</h3>
-            <p class="sub-title-cont">This is a simple Text Similarity Detector that based on the WINNOWING Algorithm. The detection process occurs on the front end via JavaScript. This website does not store any records or data. Feel free to play with it! </p>
-            English | <a href="zh.html">中文</a>
-            <textarea id="text1" rows="10" cols="200" placeholder="Enter your first text here"></textarea>
-            <textarea id="text2" rows="10" cols="200" placeholder="Enter your second text here"></textarea>
+            <h3 class="title-main-cont">相似性检测器</h3>
+            <p class="sub-title-cont">这是一款基于 WINNOWING 算法的简单文本相似性检测器。检测过程通过 JavaScript 在前端进行。本网站不存储任何记录或数据。请随意使用！</p>
+            中文 | <a href="index.html">English</a>
+            <textarea id="text1" rows="10" cols="200" placeholder="在此输入您的第一个文本"></textarea>
+            <textarea id="text2" rows="10" cols="200" placeholder="在此输入您的第二个文本"></textarea>
 
             <div class="text-right">
-              <button onclick="runPlagiarismDetection()" class="btn btn-contact">Detect Now</button>
+              <button onclick="runPlagiarismDetection()" class="btn btn-contact">开始检测</button>
             </div>
           </div>
           <!-- //contact form -->
@@ -153,20 +153,20 @@ return false;
           <div class="contact">
             <div class="cont-subs">
               <div class="cont-add">
-                <h4>Similarity:</h4>
-                <p id="result">The similarity between two texts. This will have two results: high or low.</p>
+                <h4>相似性</h4>
+                <p id="result">两个文本之间的相似度。这将产生两种结果：高或低。</p>
               </div>
               <div class="cont-add">
-                <h4>Window Size:</h4>
-                <p id="windowsize">The window size to be used for detection: result will be an integer between 1 and 100.</p>
+                <h4>窗口大小：</h4>
+                <p id="windowsize">用于检测的窗口大小：会是一个1到100以内的数字。</p>
               </div>
               <div class="cont-add">
-                <h4>Fingerprints of text 1:</h4>
-                <p id="fg1">The fingerprints preview of the first text: result will be a set of hashes.</p>
+                <h4>文本指纹 1：</h4>
+                <p id="fg1">第一个文本的指纹预览：会是一个哈希值列表。</p>
               </div>
               <div class="cont-add">
-                <h4>Fingerprints of text 2:</h4>
-                <p id="fg2">The fingerprints preview of the second text: result will be a set of hashes.</p>
+                <h4>文本指纹 2：</h4>
+                <p id="fg2">第二个文本的指纹预览：会是一个哈希值列表。</p>
               </div>
               <a href="https://www.haozheli.com" target="_blank">Copyright Haozhe Li 2023</a>
             </div>
