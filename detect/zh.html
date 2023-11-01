@@ -13,23 +13,32 @@
     // ...
 
     // Preprocess the text: tokenize and convert to lowercase
-  function preprocessText(rawText) {
+    function preprocessText(rawText) {
       let tokens = [];
       let token = "";
+    
       for (let i = 0; i < rawText.length; i++) {
-      let c = rawText[i];
-      if (/[a-zA-Z0-9]/.test(c)) {
-          token += c.toLowerCase();
-      } else if (token !== "") {
+        let c = rawText[i];
+        
+        if (/[a-zA-Z0-9]/.test(c) || /[\u4e00-\u9fa5]/.test(c)) {
+          // 如果是英文字母、数字或者中文字符
+          if (/[A-Z]/.test(c)) {
+            token += c.toLowerCase(); // 将大写字母转为小写
+          } else {
+            token += c;
+          }
+        } else if (token !== "") {
           tokens.push(token);
           token = "";
+        }
       }
-      }
+    
       if (token !== "") {
-      tokens.push(token);
+        tokens.push(token);
       }
+    
       return tokens;
-  }
+    }   
   
   // Create windows from the processed text
   function createWindows(processedText, windowSize) {
@@ -124,7 +133,7 @@ return false;
     let isPlagiarized = detectPlagiarism(fingerprints1, fingerprints2);
 
 // Display the result
-    document.getElementById("result").innerText = isPlagiarized ? "High" : "Low";
+    document.getElementById("result").innerText = isPlagiarized ? "高" : "低";
   }
   
   </script>
@@ -140,7 +149,7 @@ return false;
           <div class="contacts12-main">
             <h3 class="title-main-cont">相似性检测器</h3>
             <p class="sub-title-cont">这是一款基于 WINNOWING 算法的简单文本相似性检测器。检测过程通过 JavaScript 在前端进行。本网站不存储任何记录或数据。请随意使用！</p>
-            中文 | <a href="index.html">English</a>
+            <a href="index.html">English</a> | 中文 | <a href="ja.html">日本語</a>
             <textarea id="text1" rows="10" cols="200" placeholder="在此输入您的第一个文本"></textarea>
             <textarea id="text2" rows="10" cols="200" placeholder="在此输入您的第二个文本"></textarea>
 
@@ -152,6 +161,9 @@ return false;
           <!-- contact address -->
           <div class="contact">
             <div class="cont-subs">
+              <div class="cont-add">
+                <h1>结果：</h1>
+              </div>
               <div class="cont-add">
                 <h4>相似性</h4>
                 <p id="result">两个文本之间的相似度。这将产生两种结果：高或低。</p>

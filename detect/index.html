@@ -13,23 +13,32 @@
     // ...
 
     // Preprocess the text: tokenize and convert to lowercase
-  function preprocessText(rawText) {
+    function preprocessText(rawText) {
       let tokens = [];
       let token = "";
+    
       for (let i = 0; i < rawText.length; i++) {
-      let c = rawText[i];
-      if (/[a-zA-Z0-9]/.test(c)) {
-          token += c.toLowerCase();
-      } else if (token !== "") {
+        let c = rawText[i];
+        
+        if (/[a-zA-Z0-9]/.test(c) || /[\u4e00-\u9fa5]/.test(c)) {
+          // 如果是英文字母、数字或者中文字符
+          if (/[A-Z]/.test(c)) {
+            token += c.toLowerCase(); // 将大写字母转为小写
+          } else {
+            token += c;
+          }
+        } else if (token !== "") {
           tokens.push(token);
           token = "";
+        }
       }
-      }
+    
       if (token !== "") {
-      tokens.push(token);
+        tokens.push(token);
       }
+    
       return tokens;
-  }
+    } 
   
   // Create windows from the processed text
   function createWindows(processedText, windowSize) {
@@ -140,7 +149,7 @@ return false;
           <div class="contacts12-main">
             <h3 class="title-main-cont">Similarity Detector</h3>
             <p class="sub-title-cont">This is a simple Text Similarity Detector that based on the WINNOWING Algorithm. The detection process occurs on the front end via JavaScript. This website does not store any records or data. Feel free to play with it! </p>
-            English | <a href="zh.html">中文</a>
+            English | <a href="zh.html">中文</a> | <a href="ja.html">日本語</a>
             <textarea id="text1" rows="10" cols="200" placeholder="Enter your first text here"></textarea>
             <textarea id="text2" rows="10" cols="200" placeholder="Enter your second text here"></textarea>
 
@@ -152,6 +161,9 @@ return false;
           <!-- contact address -->
           <div class="contact">
             <div class="cont-subs">
+              <div class="cont-add">
+                <h1>Result: </h1>
+              </div>
               <div class="cont-add">
                 <h4>Similarity:</h4>
                 <p id="result">The similarity between two texts. This will have two results: high or low.</p>
