@@ -32,9 +32,9 @@ My first race ever!
 - Date: September 9, 2023
 - Photos:
     
-    ![1.png](About%20My%20Running%2029f48946466646ae9d4dda75789169eb/1.png)
+    ![1.png](run/1.png)
     
-    ![2.png](About%20My%20Running%2029f48946466646ae9d4dda75789169eb/2.png)
+    ![2.png](run/2.png)
     
 
 ## Future's So Bright 5K
@@ -49,7 +49,7 @@ Second race! It’s only for fun and no ranking was given. Racing with friends w
 - Date: October 5, 2023
 - Photos:
     
-    ![4.png](About%20My%20Running%2029f48946466646ae9d4dda75789169eb/4.png)
+    ![4.png](run/4.png)
     
 
 ## Aruna Run 5K
@@ -64,9 +64,9 @@ My first trail run.
 - Date: October 14, 2023
 - Photos
     
-    ![391627536_714472900725316_1366103427388582786_n-2.jpg](About%20My%20Running%2029f48946466646ae9d4dda75789169eb/391627536_714472900725316_1366103427388582786_n-2.jpg)
+    ![391627536_714472900725316_1366103427388582786_n-2.jpg](run/391627536_714472900725316_1366103427388582786_n-2.jpg)
     
-    ![391624027_714472754058664_750344819784879813_n.jpg](About%20My%20Running%2029f48946466646ae9d4dda75789169eb/391624027_714472754058664_750344819784879813_n.jpg)
+    ![391624027_714472754058664_750344819784879813_n.jpg](run/391624027_714472754058664_750344819784879813_n.jpg)
     
 
 ## Rattlesnake Master Run 10K for the Prairie
@@ -81,11 +81,11 @@ My first 10k race!
 - Date: November 5, 2023
 - Photos:
 
-![3.png](About%20My%20Running%2029f48946466646ae9d4dda75789169eb/3.png)
+![3.png](run/3.png)
 
-![race_133936_212842_f4115141-34c8-49cb-9505-08b4c93dfa89.jpeg](About%20My%20Running%2029f48946466646ae9d4dda75789169eb/race_133936_212842_f4115141-34c8-49cb-9505-08b4c93dfa89.jpeg)
+![race_133936_212842_f4115141-34c8-49cb-9505-08b4c93dfa89.jpeg](run/race_133936_212842_f4115141-34c8-49cb-9505-08b4c93dfa89.jpeg)
 
-![race_133936_212842_f4540f63-375e-441d-9025-1eb96bc17df7.jpeg](About%20My%20Running%2029f48946466646ae9d4dda75789169eb/race_133936_212842_f4540f63-375e-441d-9025-1eb96bc17df7.jpeg)
+![race_133936_212842_f4540f63-375e-441d-9025-1eb96bc17df7.jpeg](run/race_133936_212842_f4540f63-375e-441d-9025-1eb96bc17df7.jpeg)
 
 Updating in progress…
 

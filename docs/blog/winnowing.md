@@ -1,12 +1,8 @@
 # Using WINNOWING Algorithm to detect text similarity
 
-[阅读中文版本🇨🇳](../%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%20e038feee63eb4752aa858e95ea87ee67/%E4%BD%BF%E7%94%A8%E7%AD%9B%E5%AD%90%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E6%96%87%E6%9C%AC%E7%9B%B8%E4%BC%BC%E5%BA%A6%E6%A3%80%E6%B5%8B%20d03e45ce3e4e44c99c78d1ce5dc844c0.md)
-
-# Table of Contents
-
 # How To Use?
 
-![3.jpg](Using%20WINNOWING%20Algorithm%20to%20detect%20text%20similarit%206a7648cfd3df4dcfac6fb2150e780c02/3.jpg)
+![3.jpg](winnowing/3.jpg)
 
 ## Quick Start
 

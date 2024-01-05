@@ -8,15 +8,15 @@ I simply enjoy programming and am not at a high level most of the time. The arti
 
 First of all, I was inspired by here: [**CS128**](https://cs128.org) , this is the website of our school's C++ introduction course. Every time I enter the site, the page greets me in a different language with the name of that language.
 
-![Untitled](Using%20JavaScript%20to%20implement%20greeting%20effects%20in%20%20580a630c0f4d47c7ac50e3165f24943c/Untitled.png)
+![Untitled](greeting/Untitled.png)
 
-![Untitled](Using%20JavaScript%20to%20implement%20greeting%20effects%20in%20%20580a630c0f4d47c7ac50e3165f24943c/Untitled%201.png)
+![Untitled](greeting/Untitled%201.png)
 
 The greeting language also changes with each refresh, which looks very interesting. So I also introduced this effect into my personal website: [**My personal website**](https://www.haozheli.com)
 
-![Untitled](Using%20JavaScript%20to%20implement%20greeting%20effects%20in%20%20580a630c0f4d47c7ac50e3165f24943c/Untitled%202.png)
+![Untitled](greeting/Untitled%202.png)
 
-![Untitled](Using%20JavaScript%20to%20implement%20greeting%20effects%20in%20%20580a630c0f4d47c7ac50e3165f24943c/Untitled%203.png)
+![Untitled](greeting/Untitled%203.png)
 
 Today I will describe how to use html as well as JavaScript to achieve this function.
 
