@@ -1,7 +1,11 @@
 - English
-    - [Home](README.md)
     - [Greetings effect in webpage](greeting.md)
     - [Davinci Resolve Studio](davinci.md)
     - [Winnowing Algo](winnowing.md)
     - [About My Running](run.md)
     - [Fit2Video Readme](fit2video.md)
+
+- 中文
+    - [MOSS的原理](moss-zh.md)
+    - [网页打招呼](greeting-zh.md)
+    - [达芬奇](davinci-zh.md)
