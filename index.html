@@ -113,7 +113,7 @@
       <h1><a href="index.html">Haozhe Li</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2>I'm a passionate <span>Student</span>, <span>Developer</span>, <span>Runner</span> and <span> Filmmaker</span></h2>
+      <h2>I'm a <span>Student</span>, <span>Innovator</span>, <span>Runner</span> and <span> Filmmaker</span></h2>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
@@ -121,16 +121,8 @@
           <li><a class="nav-link" href="#resume">Resume</a></li>
           <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
-          <li><a class="nav-link" href="https://haozheli.cn">简体中文</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-        <div id="language-modal" class="modal">
-          <div class="modal-content">
-            <p>您是否想切换到中文版本？</p>
-            <button id="switch-language-yes">是</button>
-            <button id="switch-language-no">否</button>
-          </div>
-        </div>
         
       </nav><!-- .navbar -->
 
@@ -392,13 +384,13 @@
       <div class="section-title">
         <h2>Resume</h2>
         <p>Check My Resume</p>
-        <a href="assets/files/haozheli_resume.pdf">See More in PDF</a>
+        <a href="resume/Resume.html">See More in PDF</a>
       </div>
 
       <div class="row">
         <div class="col-lg-6">
           <p>*Resume information on the website may not up-to-date, please refer to the pdf version.</p>
-          <h3 class="resume-title">Sumary</h3>
+          <h3 class="resume-title">Summary</h3>
           <div class="resume-item pb-0">
             <h4>Haozhe Li</h4>
             <p>
@@ -426,7 +418,7 @@
             <ul>
               <li>Currently completing courses in computer science, music theory and technology, musicianship, and computational music.</li>
               <li>Prominent coursework: CS 124 Machine Project, CS 128 Machine Problem, MUS 105 Machine Project</li>
-              <li>GPA 3.96</li>
+              <li>GPA 3.98</li>
               <li>UIUC Dean's List Fall 2022 and Spring 2023</li>
             </ul>
           </div>
@@ -813,40 +805,6 @@
       }
     }
   </script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const languageModal = document.getElementById('language-modal');
-      const switchLanguageYes = document.getElementById('switch-language-yes');
-      const switchLanguageNo = document.getElementById('switch-language-no');
-    
-      // 判断用户是否需要切换语言
-      function askUserToSwitchLanguage() {
-        if (window.navigator.language.startsWith('en')) {
-          // 如果浏览器语言是中文，不显示模态框
-          return;
-        }
-    
-        // 显示模态框
-        languageModal.style.display = 'block';
-    
-        // 处理用户选择
-        switchLanguageYes.addEventListener('click', function() {
-          window.location.href = 'https://haozheli.cn'; // 切换到中文网站
-        });
-    
-        switchLanguageNo.addEventListener('click', function() {
-          languageModal.style.display = 'none'; // 隐藏模态框
-        });
-      }
-    
-      // 调用函数来询问用户是否切换语言
-      askUserToSwitchLanguage();
-    });
-    
-  </script>
-
-  
   <!-- End of Pop up weixin QR code section-->
 
   <!-- Template Main JS File -->
