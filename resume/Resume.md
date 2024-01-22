@@ -45,14 +45,21 @@
 
 ## <img src="assets/graduation-cap-solid.svg" width="30px"> Education
 
-- BS in **Computer Science and Music**, University of Illinois Urbana-Champaign (2022-)
+- BS in **Computer Science and Music**, University of Illinois Urbana-Champaign (2022 - 2026 Expected)
 
-  - GPA: 3.98, Top 10% of class
+  - GPA: 3.98
   - Dean's List at University of Illinois
 
   
 
 ## <img src="assets/briefcase-solid.svg" width="30px"> Work Experience
+
+- **LLM Prompt and AI Engineer Intern**, RPGGO
+
+  2024.1 -
+
+  - Worked with LLM to gererate real-time BGM, Sound Effects for Game
+  - Architected pipelines for AI-Powered Games
 
 - **Course Assistant**, University of Illinois Urbana-Champaign
 
