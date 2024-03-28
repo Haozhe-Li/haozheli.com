@@ -35,9 +35,9 @@
 
  - Currently studying at University of Illinois Urbana-Champaign
 
- - Proficient in C++, Python, and Java
+ - Proficient in C++, Python, Java and LLM
 
- - Some experience in front-end development
+ - Some experience in full-stack development
 
  - Video content creator with 10K+ followers
 
@@ -54,14 +54,14 @@
 
 ## <img src="assets/briefcase-solid.svg" width="30px"> Work Experience
 
-- **LLM Prompt and AI Engineer Intern**, RPGGO
+- **AI Prompt Engineer Intern**, [RPGGO](https://rpggo.ai)
 
   2024.1 -
 
   - Worked with LLM to gererate real-time BGM, Sound Effects for Game
   - Architected pipelines for AI-Powered Games
 
-- **Course Assistant**, University of Illinois Urbana-Champaign
+- **Course Assistant**, [University of Illinois Urbana-Champaign](https://illinois.edu)
 
    2023.1 - 2023.5, 2024.1 -
    
@@ -69,7 +69,7 @@
    - Assisted in recording introductory lectures and pre-class materials for the course website
    - Online assistance for student queries related to course content and projects
 
-- **Content Contributor**, ZNotes
+- **Content Contributor**, [ZNotes](https://znotes.org)
 
   12/2021 - 04/2022
 
@@ -108,10 +108,11 @@
 
 ## <img src="assets/tools-solid.svg" width="30px"> Skills
 
-- ★★☆ C++, Python, Java
-- ★☆☆ JavaScript, HTML, CSS
-- ★☆☆ Pandas, PyTorch
 - ★★★ Audio/Video Processing
+- ★★☆ C++, Python, Java
+- ★★☆ LLM, Prompt Engineer, Fine-Tuning
+- ★☆☆ Full-Stack Developing (HTML, JS, Flask)
+- ★☆☆ Pandas, PyTorch
 - ★☆☆ Digital Signal Processing
 
 

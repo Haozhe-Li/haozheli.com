@@ -34,9 +34,9 @@
 
  - 就读于伊利诺伊大学香槟分校
 
- - 熟练使用C++, Python与Java
+ - 熟练使用C++，Python，Java与大模型
 
- - 具有一定前端开发经验
+ - 具有一定全栈开发经验
 
  - 10K+ 粉丝视频博主
 
@@ -53,14 +53,14 @@
 
 ## <img src="assets/briefcase-solid.svg" width="30px"> 工作经历
 
-- **大模型人工智能工程师实习**，RPGGO
+- **人工智能提示工程实习**，[RPGGO](https://rpggo.ai)
 
   2024.1 -
 
   - 使用大语言模型生成实时游戏背景音乐与音效
   - 构造基于人工智能的游戏的工作流程
 
-- **课程助理**，伊利诺伊大学香槟分校
+- **课程助理**，[伊利诺伊大学香槟分校](https://illinois.edu)
 
    2023.1 - 2023.5, 2024.1 -
    
@@ -68,7 +68,7 @@
    - 协助老师在课程网站上录制讲座导言、预习内容
    - 在线解答同学关于课程内容、机器项目等的疑问
 
-- **内容贡献者**，ZNotes
+- **内容贡献者**，[ZNotes](https://znotes.org)
 
   12/2021 - 04/2022
 
@@ -111,10 +111,11 @@
 
 ## <img src="assets/tools-solid.svg" width="30px"> 技能清单
 
-- ★★☆ C++、Python, Java
-- ★☆☆ JavaScript, HTML与CSS
-- ★☆☆ Pandas, PyTorch
 - ★★★ 音视频处理
+- ★★☆ C++, Python, Java
+- ★★☆ 大模型，提示工程，微调
+- ★☆☆ 全栈开发（HTML, JS, Flask）
+- ★☆☆ Pandas, PyTorch
 - ★☆☆ 数字信号处理
 
 
