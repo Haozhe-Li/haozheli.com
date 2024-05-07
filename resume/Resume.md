@@ -48,7 +48,7 @@
 - BS in **Computer Science and Music**, University of Illinois Urbana-Champaign (2022 - 2026 Expected)
 
   - GPA: 3.98
-  - Dean's List at University of Illinois
+  - **Dean's List at University of Illinois** since 2022 Fall
 
   
 
@@ -58,8 +58,8 @@
 
   2024.1 -
 
-  - Worked with LLM to gererate real-time BGM, Sound Effects for Game
-  - Architected pipelines for AI-Powered Games
+  - Generate customized soundtracks for games using GPT and Musicgen models
+  - Fine-tune music generation to game themes and scenarios
 
 - **Course Assistant**, [University of Illinois Urbana-Champaign](https://illinois.edu)
 
