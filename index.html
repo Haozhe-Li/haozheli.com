@@ -666,7 +666,7 @@
           </div>
         </div>
 
-      <form action="https://formspree.io/f/mzbqbwod" method="post" role="form" class="php-email-form mt-4">
+      <form role="form" class="php-email-form mt-4" id="emailForm">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -679,18 +679,16 @@
           <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
         </div>
         <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          <textarea class="form-control" name="message" rows="5" placeholder="Message" id="message" required></textarea>
         </div>
         <div class="my-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
+          <div id="mail-status" class="text-center"></div>
         </div>
         <div class="text-center"><button type="submit">Send Message</button></div>
       </form>
 
     </div>
-  </section><!-- End Contact Section -->
+  </section>
 
   <div class="credits">
     <!-- All the links in the footer should remain intact. -->
@@ -709,30 +707,6 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-  <!-- REMOVE ConveyThis code -->
-
-  <!-- Pop up weixin QR code section-->
-  <script>
-    function showPopup(imagePath) {
-      var popup = document.getElementById("popup");
-      var img = popup.getElementsByTagName("img")[0];
-      img.src = imagePath;
-      popup.style.display = "block";
-    }
-
-    function closePopup() {
-      var popup = document.getElementById("popup");
-      popup.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      var popup = document.getElementById("popup");
-      if (event.target == popup) {
-        popup.style.display = "none";
-      }
-    }
-  </script>
-  <!-- End of Pop up weixin QR code section-->
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -745,6 +719,48 @@
       });
     });
   </script>
+
+  <!--For Contact Form-->
+  <script>
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // get id="mail-status" and set it to 'Sending...'
+        document.getElementById('mail-status').innerText = 'Loading...';
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const data = {
+            name: name,
+            email: email,
+            message: message
+        };
+
+        fetch('https://mail.haozheli.com/send_email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data);
+            document.getElementById('mail-status').innerText = 'Message sent successfully!';
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            document.getElementById('mail-status').innerText = 'An error occurred. Please try again later.';
+        });
+    });
+</script>
 
 </body>
 
