@@ -655,9 +655,6 @@
               <a href="https://www.instagram.com/haozheli04/" class="instagram"><i class="fa-brands fa-instagram"></i></a>
               <a href="https://www.linkedin.com/in/haozheli" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
               <a href="https://www.youtube.com/channel/UCBI1IZM1HK6PP9COneQXpog" class="youtube"><i class="fa-brands fa-youtube"></i></a>
-              <!--Delete wechat popup
-              <a href="#" class="weixin" onclick="showPopup('assets/img/weixin-qr.webp'); return false;"><i class="fa-brands fa-weixin"></i></a>
-              -->
               <a href="https://space.bilibili.com/421778349?spm_id_from=333.1007.0.0" class="bilibili"><i class="fa-brands fa-bilibili"></i></a>
               <a href="https://v.douyin.com/iDQXrmM/" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
               <a href="https://www.strava.com/athletes/haozheli" class="Strava"><i class="fa-brands fa-strava"></i></a>
@@ -676,7 +673,7 @@
           </div>
         </div>
         <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
         </div>
         <div class="form-group mt-3">
           <textarea class="form-control" name="message" rows="5" placeholder="Message" id="message" required></textarea>
@@ -724,8 +721,6 @@
   <script>
     document.getElementById('emailForm').addEventListener('submit', function(event) {
         event.preventDefault();
-
-        // get id="mail-status" and set it to 'Sending...'
         document.getElementById('mail-status').innerText = 'Loading...';
 
         const name = document.getElementById('name').value;
@@ -760,6 +755,9 @@
             document.getElementById('mail-status').innerText = 'An error occurred. Please try again later.';
         });
     });
+</script>
+<script>
+  console.log("Can't believe you are here! If you are interested in my website, please contact me at mail@haozheli.com. I am looking forward to hearing from you! Have a great day! 👀 🎉");
 </script>
 
 </body>
