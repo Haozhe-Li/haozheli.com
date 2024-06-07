@@ -23,7 +23,7 @@
          ·
          <span>
              <img src="assets/rss-solid.svg" width="18px">
-             <a href="https://www.haozheli.com">网站</a>
+             <a href="https://www.haozhe.li">网站</a>
          </span>
      </div>
  </center>
@@ -84,7 +84,7 @@
 
 - **个人网站**
 
-  项目链接：[haozheli.com](https://www.haozheli.com)
+  项目链接：[haozheli.com](https://www.haozhe.li)
 
   - 在课余时间我自学网页前端知识搭建了我的个人网站
   - 使用了HTML, JavaScript以及CSS
