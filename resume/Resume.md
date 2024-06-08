@@ -23,7 +23,7 @@
          ·
          <span>
              <img src="assets/rss-solid.svg" width="18px">
-             <a href="https://www.haozhe.li">Website</a>
+             <a href="https://haozhe.li">Website</a>
          </span>
      </div>
  </center>
@@ -83,7 +83,7 @@
 
 - **Personal Website**
 
-  Project Link: [haozheli.com](https://www.haozhe.li)
+  Project Link: [haozheli.com](https://haozhe.li)
 
   - Developed my personal website in spare time, self-learning front-end web development
   - Used HTML, JavaScript, and CSS
